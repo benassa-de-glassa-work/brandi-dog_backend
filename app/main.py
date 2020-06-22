@@ -11,10 +11,7 @@ from app.api.socket import sio
 from app.api import games, chats, users, authentication
 
 # wildcard "*" does not work with credentials so we have to put in the frontend origins??
-origins = [
-    'http://localhost:3000',
-    # "*",
-]
+origins = ["http://boomerdog.wartauboys.ch"]
 
 app = FastAPI(
     # title=config.PROJECT_NAME,
@@ -27,7 +24,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
 )
 
